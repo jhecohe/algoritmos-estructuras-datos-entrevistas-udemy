@@ -13,6 +13,15 @@ import com.danielblanco.algoritmosestructuras._00_linkedlist.Node;
 public class SwapNodesInPairs {
 
   public Node swapNodesInPairs(Node head) {
-    throw new UnsupportedOperationException("Not implemented yet");
+
+    Node current = head;
+    while(current != null && current.next != null){
+      int temp = current.value;;
+      current.value = current.next.value;
+      current.next.value = temp;
+      current = current.next.next;
+    }
+
+    return head;
   }
 }

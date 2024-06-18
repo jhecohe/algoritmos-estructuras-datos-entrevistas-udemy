@@ -19,22 +19,36 @@ public class QueueWithStacks {
   Deque<Integer> secondStack = new ArrayDeque<>();
 
   public void add(Integer value) {
-    throw new UnsupportedOperationException("Not implemented yet");
+
+    firstStack.push(value);
   }
 
   public Integer peek() {
-    throw new UnsupportedOperationException("Not implemented yet");
+
+    dumpElementsIntoSecondStack();
+    return secondStack.peek();
   }
 
   public Integer remove() {
-    throw new UnsupportedOperationException("Not implemented yet");
+    dumpElementsIntoSecondStack();
+    return secondStack.pop();
+  }
+
+  private void dumpElementsIntoSecondStack() {
+    if(secondStack.isEmpty()){
+      while(!firstStack.isEmpty()){
+        secondStack.push(firstStack.pop());
+      }
+    }
   }
 
   public boolean isEmpty() {
-    throw new UnsupportedOperationException("Not implemented yet");
+    return size() == 0;
   }
 
   public int size() {
-    throw new UnsupportedOperationException("Not implemented yet");
+    int first = firstStack.size();
+    int second = secondStack.size();
+    return first + second;
   }
 }
