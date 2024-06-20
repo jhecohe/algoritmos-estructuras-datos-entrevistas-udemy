@@ -1,5 +1,6 @@
 package com.danielblanco.algoritmosestructuras._03_sort_stack;
 
+import java.util.ArrayDeque;
 import java.util.Deque;
 
 /*
@@ -14,6 +15,16 @@ import java.util.Deque;
 public class SortStack {
 
   public Deque<Integer> sort(Deque<Integer> stack) {
-    throw new UnsupportedOperationException("Not implemented yet");
+    Deque<Integer> sorted = new ArrayDeque<>();
+
+    while (!stack.isEmpty()){
+      int current = stack.pop();
+      while (!sorted.isEmpty() && current > sorted.peek()) {
+        stack.push(sorted.pop());
+      }
+      sorted.push(current);
+    }
+
+    return sorted;
   }
 }
