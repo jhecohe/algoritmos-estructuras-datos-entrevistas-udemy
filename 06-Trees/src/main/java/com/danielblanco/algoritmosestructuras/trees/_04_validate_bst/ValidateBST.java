@@ -28,6 +28,19 @@ import com.danielblanco.algoritmosestructuras.trees._00_binarytree.Node;
 public class ValidateBST {
 
   public boolean isValidBST(Node root) {
-    throw new UnsupportedOperationException("Not implemented yet");
+    return isValidBST(root, null, null);
+  }
+
+  public boolean isValidBST(Node root, Integer min, Integer max) {
+    if (root == null) return true;
+
+    boolean left = min != null && root.value <= min;
+    boolean right = max != null && root.value > max;
+
+    if (left || right) {
+      return false;
+    }
+
+    return isValidBST(root.left, min, root.value) && isValidBST(root.right, root.value, max);
   }
 }
