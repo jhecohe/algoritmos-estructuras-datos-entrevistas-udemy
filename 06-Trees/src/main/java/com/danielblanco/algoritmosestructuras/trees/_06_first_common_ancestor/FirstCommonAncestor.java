@@ -19,7 +19,34 @@ import com.danielblanco.algoritmosestructuras.trees._00_binarytree.Node;
  */
 public class FirstCommonAncestor {
 
+  class AncestorNode {
+    boolean nodeFound;
+    Node ancestor;
+  }
+
   public Node firstCommonAncestor(Node root, Node firstNode, Node secondNode) {
-    throw new UnsupportedOperationException("Not implemented yet");
+    return postOrderSearch(root, firstNode, secondNode).ancestor;
+  }
+
+  private AncestorNode postOrderSearch(Node root, Node firstNode, Node secondNode) {
+
+    if (root == null) return new AncestorNode();
+
+    AncestorNode left = postOrderSearch(root.left, firstNode, secondNode);
+    // Si encontramos en el ancestro podemos retornar ese nodo
+    if (left.ancestor != null) return left;
+
+    AncestorNode right = postOrderSearch(root.right, firstNode, secondNode);
+    if (left.ancestor != null) return right;
+
+    AncestorNode result  = new AncestorNode();
+
+    if (left.nodeFound && right.nodeFound) {
+      result.ancestor = root;
+      return result;
+    }
+
+    result.nodeFound = root == firstNode || root == secondNode || left.nodeFound || right.nodeFound;
+    return result;
   }
 }
