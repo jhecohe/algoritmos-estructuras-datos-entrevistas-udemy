@@ -1,5 +1,7 @@
 package com.danielblanco.algoritmosestructuras.graphs._02_clone_graph;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /*
@@ -18,6 +20,23 @@ public class CloneGraph {
   }
 
   public Node cloneGraph(Node node) {
-    throw new UnsupportedOperationException("Not implemented yet");
+
+    HashMap<Integer, Node> clone = new HashMap<>();
+    return cloneDeep(node, clone);
+  }
+
+  private Node cloneDeep(Node node, HashMap<Integer, Node> clone) {
+    if (node == null) return null;
+    // Validamos si el nodo ya esta en al mapa, si si, lo retornamos
+    if (clone.containsKey(node.val)) return clone.get(node.val);
+
+    Node newNode = new Node();
+    newNode.val = node.val;
+    newNode.neighbors = new ArrayList<>();
+
+    clone.put(newNode.val, newNode);
+    for (Node n: node.neighbors) newNode.neighbors.add(cloneDeep(n, clone));
+
+    return newNode;
   }
 }
