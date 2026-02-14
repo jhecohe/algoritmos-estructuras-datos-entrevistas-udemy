@@ -18,14 +18,7 @@ import com.danielblanco.algoritmosestructuras.trees._00_binarytree.Node;
  */
 public class InvertBinaryTree {
 
-  public Node invertTree(Node root) {
-
-    if (root == null) return null;
-
-    Node temp = root.left;
-    root.left = invertTree(root.right);
-    root.right = invertTree(temp);
-
-    return root;
-  }
+    public Node invertTree(Node root) {
+        return root;
+    }
 }

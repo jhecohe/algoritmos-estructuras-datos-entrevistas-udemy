@@ -16,28 +16,8 @@ import com.danielblanco.algoritmosestructuras.trees._00_binarytree.Node;
  */
 public class MaximumDepth {
 
-  //Iterative way
-  public int maxDepth(Node root) {
-
-    if (root == null) return 0;
-
-    int count = 1;
-
-    while (root.left != null || root.right != null){
-      count++;
-      root =root.left;
+    //Iterative way
+    public int maxDepth(Node root) {
+        return 0;
     }
-    return count;
-  }
-
-
-//  public int maxDepth(Node root) {
-//
-//    if (root == null) return 0;
-//
-//    int depthLeft = maxDepth(root.left) + 1;
-//    int depthRight = maxDepth(root.right) + 1;
-//
-//    return Math.max(depthLeft, depthRight);
-//  }
 }

@@ -13,39 +13,13 @@ import java.util.Map;
  * Ejemplo:
  *  Input: words = ["saco", "arresto", "programa", "rastreo", "caso"].
  *  Output: [["saco", "caso"], ["arresto", "rastreo"], ["programa"]].
- * 
- * Add to a list if the wrod contains the same number of letters 
+ *
+ * Add to a list if the wrod contains the same number of letters
  * Return hashmap each word in the array
  */
 public class GroupAnagrams {
 
-  public List<List<String>> groupAnagrams(String[] words) {
-    Map<String, List<String>> map = anagramMap(words);
-
-    return new ArrayList<>(map.values());
-  }
-
-  private Map<String, List<String>> anagramMap(String[] words) {
-    Map<String, List<String>> map = new HashMap<>();
-
-    for (String word : words) {
-      String hash = getAnagram(word);
-      if (!map.containsKey(hash)) {
-        map.put(hash, new ArrayList<>());
-      }
-      map.get(hash).add(word);
+    public List<List<String>> groupAnagrams(String[] words) {
+        return null;
     }
-
-    return map;
-  }
-
-  private String getAnagram(String word) {
-    int[] letterCount = new int[26];
-
-    for (int c : word.toCharArray()) {
-      letterCount[c - 'a']++;
-    }
-
-    return Arrays.toString(letterCount);
-  }
 }

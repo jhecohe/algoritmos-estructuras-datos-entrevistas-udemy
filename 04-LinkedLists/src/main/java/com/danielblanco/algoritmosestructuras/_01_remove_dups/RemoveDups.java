@@ -1,7 +1,6 @@
 package com.danielblanco.algoritmosestructuras._01_remove_dups;
 
 import com.danielblanco.algoritmosestructuras._00_linkedlist.Node;
-
 import java.util.HashSet;
 
 /*
@@ -17,18 +16,5 @@ import java.util.HashSet;
  */
 public class RemoveDups {
 
-  public void removeDups(Node head) {
-
-    if (head == null) return;
-
-    HashSet<Integer> valores = new HashSet();
-    Node current = head;
-    valores.add(current.value);
-    while (current != null && current.next != null){
-      if (!valores.add(current.next.value)){
-        current.next = current.next.next;
-      }
-      current = current.next;
-    }
-  }
+    public void removeDups(Node head) {}
 }

@@ -12,16 +12,7 @@ import com.danielblanco.algoritmosestructuras._00_linkedlist.Node;
  */
 public class SwapNodesInPairs {
 
-  public Node swapNodesInPairs(Node head) {
-
-    Node current = head;
-    while(current != null && current.next != null){
-      int temp = current.value;;
-      current.value = current.next.value;
-      current.next.value = temp;
-      current = current.next.next;
+    public Node swapNodesInPairs(Node head) {
+        return null;
     }
-
-    return head;
-  }
 }
